@@ -1,0 +1,42 @@
+.todo_container{
+  box-sizing: border-box;
+  width: 80%;
+  margin:auto;
+  border: 2px solid black;
+  margin-top: 5px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 20fr 1fr 1fr;
+  grid-column-gap: 5px;
+  padding-right: 5px;
+}
+
+.todo_container-exit-active {
+  animation: remove 1s normal;
+}
+
+.todo_container-enter-active {
+  animation: add 1s normal;
+}
+
+@keyframes add{
+  from{
+    opacity: 0;
+    transform:translateX(-30px)
+  }
+  to{
+    opacity: 1;
+    transform:translateX(0)
+  }
+}
+
+@keyframes remove {
+  from{
+    opacity: 1;
+    transform:translateX(0)
+  }
+  to{
+    opacity: 0;
+    transform:translateX(-30px)
+  }
+}

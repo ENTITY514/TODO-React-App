@@ -1,6 +1,8 @@
 import style from "./todo-list.module.css"
+import './Components/Todo-item/todo-item-style.css'
 import TODO_Item from './Components/Todo-item/todo-item'
 import TODO_Form from './Components/TODO_Form/todo-form'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { useState } from 'react'
 
 const Todo_List = () => {
@@ -10,6 +12,7 @@ const Todo_List = () => {
     { id: Math.random().toString().substring(2, 9), work_text: "Сделать визуальные компоненты" },
     { id: Math.random().toString().substring(2, 9), work_text: "Добавить функционал" },
     { id: Math.random().toString().substring(2, 9), work_text: "Добавить анимацию для элементов" },
+    { id: Math.random().toString().substring(2, 9), work_text: "Добавить работу локального хранилища" },
   ]
 
   let [todos, set_todos] = useState(todo)
@@ -19,7 +22,6 @@ const Todo_List = () => {
       const newItem = {
         id: Math.random().toString().substring(2, 9),
         work_text: userInput,
-        complete: false,
       }
       set_todos([...todos, newItem])
     }
@@ -29,17 +31,23 @@ const Todo_List = () => {
     set_todos([...todos.filter((todo) => todo.id !== id)])
   }
 
-  let completeTask = (id) => {
-    set_todos([...todos.filter((todo) => todo.id !== id)])
-  }
-
 
   return (
     <main className={style.container}>
       <TODO_Form addTask={addTask} />
-      {todos.map((item) => {
-        return <TODO_Item item={item} removeTask={removeTask} completeTask={completeTask}/>
-      })}
+      <TransitionGroup >
+        {todos.map((item) => {
+          return (
+            <CSSTransition
+              key={item.id}
+              timeout={600}
+              classNames={"todo_container"}
+            >
+              <TODO_Item item={item} removeTask={removeTask} />
+            </CSSTransition>
+          )
+        })}
+      </TransitionGroup >
     </main>
   )
 }
