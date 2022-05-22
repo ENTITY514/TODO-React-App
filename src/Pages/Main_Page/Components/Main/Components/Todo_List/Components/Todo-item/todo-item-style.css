@@ -40,3 +40,13 @@
     transform:translateX(-30px)
   }
 }
+
+@media screen and (max-width: 480px) {
+  .todo_container{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 18fr 1fr 1fr;
+    grid-column-gap: 5px;
+    padding-right: 5px;
+  }
+}

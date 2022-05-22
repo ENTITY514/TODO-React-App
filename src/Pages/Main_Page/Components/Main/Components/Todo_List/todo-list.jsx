@@ -15,7 +15,26 @@ const Todo_List = () => {
     { id: Math.random().toString().substring(2, 9), work_text: "Добавить работу локального хранилища" },
   ]
 
-  let [todos, set_todos] = useState(todo)
+  if (localStorage.getItem("User") != "True") {
+    localStorage.setItem("User", "True")
+    for (let i = 0; i < todo.length; i++) {
+      localStorage.setItem(todo[i].id, todo[i].work_text)
+    }
+  }
+
+  let initial_state = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let id = localStorage.key(i)
+    if (id != "User") {
+      initial_state.push({
+        id: id,
+        work_text: localStorage.getItem(id)
+      })
+    }
+  }
+
+
+  let [todos, set_todos] = useState(initial_state)
 
   let addTask = (userInput) => {
     if (userInput) {
@@ -23,11 +42,13 @@ const Todo_List = () => {
         id: Math.random().toString().substring(2, 9),
         work_text: userInput,
       }
+      localStorage.setItem(newItem.id, newItem.work_text)
       set_todos([...todos, newItem])
     }
   }
 
   let removeTask = (id) => {
+    localStorage.removeItem(id)
     set_todos([...todos.filter((todo) => todo.id !== id)])
   }
 
