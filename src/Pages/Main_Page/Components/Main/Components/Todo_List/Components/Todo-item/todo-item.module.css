@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
-
 .done{
   width: 100%;
   height: 100%;
@@ -14,8 +12,7 @@
 }
 
 .text{
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 150%;
+  font-size: 120%;
   margin: 15px;
   color: black;
 }

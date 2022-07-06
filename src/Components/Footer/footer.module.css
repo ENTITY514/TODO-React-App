@@ -1,0 +1,23 @@
+.container{
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.wrapper{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link{
+  color: inherit;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+.icon_wrapper{
+  display: flex;
+  align-items: center;
+}

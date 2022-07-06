@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 .App{
-  font-family: 'Lato', sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  grid-template-rows: 80px auto 50px;
+  grid-row-gap: 20px;
 }
