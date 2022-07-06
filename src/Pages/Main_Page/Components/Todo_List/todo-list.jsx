@@ -61,7 +61,7 @@ const Todo_List = () => {
           return (
             <CSSTransition
               key={item.id}
-              timeout={600}
+              timeout={580}
               classNames={"todo_container"}
             >
               <TODO_Item item={item} removeTask={removeTask} />
