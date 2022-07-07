@@ -12,11 +12,5 @@
   border-radius: 20%;
   background-size: contain;
   background-position: center;
-}
-
-@media screen and (max-width: 480px) {
-  .container{
-    width: 40px;
-    height: 40px;
-  }
+  cursor: pointer;
 }

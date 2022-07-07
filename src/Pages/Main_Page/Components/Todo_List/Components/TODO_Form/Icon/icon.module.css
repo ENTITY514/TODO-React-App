@@ -4,6 +4,7 @@
   margin: auto;
   display: grid;
   position:relative;
+  cursor: pointer;
 }
 
 .icon{
